@@ -35,25 +35,10 @@ Pod::Spec.new do |s|
     reachability.requires_arc = false
   end
 
-  s.subspec 'Evernote' do |evernote|
-    evernote.source_files = 'Classes/ShareKit/Sharers/Services/Evernote/**/*.{h,m}'
-    evernote.dependency 'Evernote-SDK-iOS', '~> 1.3.0'
-    evernote.dependency 'ShareKit/Core'
-    evernote.libraries = 'xml2'
-    evernote.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
-  end
-
   s.subspec 'Facebook' do |facebook|
     facebook.source_files   = 'Classes/ShareKit/Sharers/Services/Facebook/**/*.{h,m}'
     facebook.dependency 'Facebook-iOS-SDK',"~> 3.8"
     facebook.dependency 'ShareKit/Core'
-  end
-
-  s.subspec 'Flickr' do |flickr|
-    flickr.source_files = 'Classes/ShareKit/Sharers/Services/Flickr/SHK*.{h,m}'
-    flickr.framework = 'SystemConfiguration', 'CFNetwork'
-    flickr.dependency 'objectiveflickr', "~> 2.0"
-    flickr.dependency 'ShareKit/Core'
   end
 
   s.subspec 'Foursquare' do |foursquare|
