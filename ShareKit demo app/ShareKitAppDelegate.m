@@ -9,12 +9,8 @@
 #import "ShareKitAppDelegate.h"
 #import "RootViewController.h"
 
-#import "SHKDropbox.h"
 #import "SHKGooglePlus.h"
 #import "SHKFacebook.h"
-#import "EvernoteSDK.h"
-#import "SHKBuffer.h"
-#import "PocketAPI.h"
 
 #import "SHKConfiguration.h"
 #import "ShareKitDemoConfigurator.h"
@@ -55,7 +51,6 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
 	[SHKFacebook handleDidBecomeActive];
-    [[EvernoteSession sharedSession] handleDidBecomeActive];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application 
@@ -79,14 +74,6 @@
         return [SHKFacebook handleOpenURL:url];
     } else if ([scheme isEqualToString:@"com.cocoaminers.sharekit-demo-app"]) {
         return [SHKGooglePlus handleURL:url sourceApplication:sourceApplication annotation:annotation];
-    } else if ([scheme hasPrefix:[NSString stringWithFormat:@"db-%@", SHKCONFIG(dropboxAppKey)]]) {
-        return [SHKDropbox handleOpenURL:url];
-    } else if ([[NSString stringWithFormat:@"en-%@", [[EvernoteSession sharedSession] consumerKey]] isEqualToString:[url scheme]]) {
-        return [[EvernoteSession sharedSession] canHandleOpenURL:url];
-    } else if ([scheme hasPrefix:[NSString stringWithFormat:@"buffer%@", SHKCONFIG(bufferClientID)]]) {
-        return [SHKBuffer handleOpenURL:url];
-    }else if ([scheme hasPrefix:[NSString stringWithFormat:@"pocketapp%@", pocketPrefixKeyPart]]) {
-        return [[PocketAPI sharedAPI] handleOpenURL:url];
     }
 
     
