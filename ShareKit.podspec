@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary       = 'Drop in sharing features for all iPhone and iPad apps.'
   s.homepage      = 'http://getsharekit.com/'
   s.author        = 'ShareKit Community'
-  s.source        = { :git  => 'https://github.com/ShareKit/ShareKit.git', :tag => s.version.to_s }
+  s.source        = { :git  => 'https://github.com/BrandyMint/ShareKit.git', :tag => s.version.to_s }
   s.requires_arc = true
   s.license       = { :type => 'MIT',
                       :text => %Q|Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n| +
@@ -91,12 +91,6 @@ Pod::Spec.new do |s|
   s.subspec 'Diigo' do |diigo|
     diigo.source_files = 'Classes/ShareKit/Sharers/Services/Diigo/**/*.{h,m}'
     diigo.dependency 'ShareKit/Core'
-  end
-
-  s.subspec 'Dropbox' do |dropbox|
-    dropbox.source_files = 'Classes/ShareKit/Sharers/Services/Dropbox/**/*.{h,m}'
-    dropbox.dependency 'ShareKit/Core'
-    dropbox.dependency 'Dropbox-iOS-SDK', '~> 1.3'
   end
 
   s.subspec 'Instapaper' do |instapaper|
